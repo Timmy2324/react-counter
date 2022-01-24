@@ -1,0 +1,19 @@
+.wrap {
+    border: 2px solid steelblue;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.counterWrapper {
+    width: 400px;
+    height: 100%;
+}
+
+.inputsWrapper {
+    margin-bottom: 20px;
+}
+
+.buttonsWrapper {
+    display: flex;
+    justify-content: space-around;
+}
