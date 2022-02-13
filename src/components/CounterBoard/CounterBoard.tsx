@@ -2,13 +2,18 @@ import React from 'react';
 import classes from './CounterBoard.module.css';
 
 type CounterBoardPropsType = {
-    value: number
+    value: string
+    isRed?: boolean
 }
 
-export const CounterBoard = ({value}:CounterBoardPropsType) => {
+export const CounterBoard = ({value, isRed, ...restProps}:CounterBoardPropsType) => {
+
+
+    const spanStyle = `${classes.span} ${isRed ? classes.red : ''}`
+
     return (
         <div className={classes.wrapper}>
-            <span className={classes.span}>{value}</span>
+            <span className={spanStyle}>{value}</span>
         </div>
     );
 };

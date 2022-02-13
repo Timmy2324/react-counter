@@ -5,20 +5,23 @@ type InputWithLabelPropsType = {
     text: string
     counter: number
     onChangeCounter: (value: number) => void
+    error: boolean
 }
 
-export const InputWithLabel = ({text, counter, onChangeCounter, ...restProps}: InputWithLabelPropsType) => {
+export const InputWithLabel = ({text, counter, onChangeCounter, error, ...restProps}: InputWithLabelPropsType) => {
 
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         onChangeCounter(+e.currentTarget.value)
     }
 
+    const inputStyle = `${classes.counter} ${error ? classes.errorCounter : ''}`;
+
     return (
         <div>
             <label className={classes.wrapper}>
                 <span className={classes.text}>{text}</span>
-                <input type={'number'} className={`${classes.counter} ${counter < 0 ? classes.errorCounter : ''}`} value={counter} onChange={onChangeHandler}/>
+                <input type={'number'} className={inputStyle} value={counter} onChange={onChangeHandler}/>
             </label>
         </div>
     );
